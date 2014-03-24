@@ -1,0 +1,60 @@
+{namespace io.core9.c9wt}
+
+/**
+ * @param page
+ * @param total
+ */
+{template .pager}
+<ul class="pagination">
+	// Start (previous button)
+	{if $page == 1}
+		<li class="disabled"><a href="#">&laquo;</a></li>
+	{else}
+		<li><a href="?page={$page-1}">&laquo;</a></li>
+	{/if}
+    
+    // Items before current page
+    {if ($total <= 10 or $page <= 5) and $page <= $total}
+    	{for $number in range(1, $page)}
+        	<li><a href="?page={$number}">{$number}</a></li>
+        {/for}
+    {elseif ($page <= $total-5) and $page <= $total}
+		{for $number in range($page-5, $page)}
+			<li><a href="?page={$number}">{$number}</a></li>
+		{/for}
+    {elseif $page <= $total}
+		{for $number in range($total-9, $page)}
+			<li><a href="?page={$number}">{$number}</a></li>
+		{/for}
+ 	{/if}
+    
+    // Current item
+    <li class="active"><a href="#">{$page}</a></li>
+    
+    // Items after current page
+    {if $total <= 10 and $page <= $total}
+    	{for $number in range($page + 1, $total + 1)}
+			<li><a href="?page={$number}">{$number}</a></li>
+		{/for}
+    {elseif ($page <= 5) and $page <= $total}
+    	{for $number in range($page + 1, 11)}
+        	<li><a href="?page={$number}">{$number}</a></li>
+        {/for}
+    {elseif ($page <= $total-5) and $page <= $total}
+    	{for $number in range($page + 1, $page + 5)}
+        	<li><a href="?page={$number}">{$number}</a></li>
+        {/for}
+    {elseif $page <= $total}
+    	{for $number in range($page + 1, $total + 1)}
+        	<li><a href="?page={$number}">{$number}</a></li>
+        {/for}
+    {/if}
+    
+    // End (next button)
+    {if $page >= $total}
+		<li class="disabled"><a href="#">&raquo;</a></li>
+	{else}
+		<li><a href="?page={$page+1}">&raquo;</a></li>
+	{/if}
+</ul>
+{/template}

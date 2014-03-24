@@ -1,0 +1,57 @@
+{namespace io.core9.c9wt}
+
+/**
+ * @param menu
+ */
+{template .menu}
+	{call .item}{param item: $menu/}{/call}	
+{/template}
+
+/**
+ * @param item
+ */
+{template .item}
+{switch $item.type}
+  {case 'nav'}
+    {call .nav}{param item: $item /}{/call}
+  {case 'navitem'}
+  	{call .navitem}{param item: $item/}{/call}
+  {case 'ul'}
+    {call .nav}{param item: $item /}{/call}
+  {case 'li'}
+    {call .li}{param item: $item /}{/call}
+  {default} 
+    Error, {$item.type} isn't implemented (yet).
+{/switch}
+{/template}
+
+/**
+ * @param item
+ */
+{template .nav}
+<ul {if $item.classes}class="{$item.classes}"{/if}>{if $item.items}{foreach $inner in $item.items}{call .item}{param item: $inner /}{/call}{/foreach}{/if}</ul>
+{/template}
+
+/**
+ * @param item
+ */
+{template .ul}
+<ul {if $item.classes}class="{$item.classes}"{/if}>{foreach $inner in $item.items}{call .item}{param item: $inner /}{/call}{/foreach}</ul>
+{/template}
+
+/**
+ * @param item
+ */
+{template .li}
+<li {if $item.classes}class="{$item.classes}"{/if}>{if $item.link}<a href="{$item.link}">{/if}{$item.name}{if $item.link}</a>{/if}</li>
+{/template}
+
+/**
+ * @param item
+ */
+{template .navitem}
+<li {if $item.classes}class="{$item.classes}"{/if}>{if $item.link}<a href="{$item.link}">{/if}{$item.name}{if $item.link}</a>{/if}
+{if $item.items}
+{foreach $inner in $item.items}{call .item}{param item: $inner /}{/call}{/foreach}
+{/if}</li>
+{/template}
