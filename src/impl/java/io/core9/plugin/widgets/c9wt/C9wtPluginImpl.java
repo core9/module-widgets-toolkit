@@ -19,6 +19,7 @@ public class C9wtPluginImpl implements C9wtPlugin {
 	public void execute() {
 		try {
 			engine.addString("io.core9.c9wt.pager.soy", CharStreams.toString(new InputStreamReader(this.getClass().getResourceAsStream("/pager/pager.soy"))));
+			engine.createCache();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
