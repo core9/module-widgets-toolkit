@@ -48,12 +48,12 @@ public class LoginWidgetImpl implements LoginWidget {
 	@Override
     public List<PageModel> getPageModels() {
 		List<PageModel> models = new ArrayList<PageModel>();
-		PageModel product = new PageModelImpl();
+/*		PageModel product = new PageModelImpl();
 		product.setName("login");
 		product.setPath("/login/:action");
 		product.setTemplateName("noflow");
 		product.addComponent(new Component("login_form"));
-		models.add(product);
+		models.add(product);*/
 
 		return models;
     }
