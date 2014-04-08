@@ -2,11 +2,9 @@ package io.core9.plugin.widgets.c9wt.menu;
 
 import io.core9.plugin.widgets.datahandler.DataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
-import io.core9.plugin.widgets.widget.Widget;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Map;
 
 import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
@@ -55,22 +53,6 @@ public class MenuWidgetImpl implements MenuWidget {
 		handler = menuDataHandler.createDataHandler(options);
 	}
 
-	@Override
-	public Widget setDataHandler(DataHandler<?> dataHandler) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public String getHandler() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Map<String, Object> getHandlerOptions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
