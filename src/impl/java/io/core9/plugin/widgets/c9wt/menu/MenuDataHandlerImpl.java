@@ -3,8 +3,6 @@ package io.core9.plugin.widgets.c9wt.menu;
 import io.core9.plugin.admin.plugins.AdminConfigRepository;
 import io.core9.plugin.server.request.Request;
 import io.core9.plugin.server.vertx.VertxServer;
-import io.core9.plugin.session.Session;
-import io.core9.plugin.session.SessionManager;
 import io.core9.plugin.widgets.c9wt.menu.MenuDataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandlerFactoryConfig;
@@ -21,8 +19,7 @@ public class MenuDataHandlerImpl implements MenuDataHandler<MenuDataHandlerConfi
 	@InjectPlugin
 	private AdminConfigRepository configRepository;
 
-	@InjectPlugin
-	private SessionManager sessionManager;
+
 	
 	@InjectPlugin
 	private VertxServer server;
@@ -44,9 +41,7 @@ public class MenuDataHandlerImpl implements MenuDataHandler<MenuDataHandlerConfi
 			@Override
 			public Map<String, Object> handle(Request req) {
 				
-				//FIXME session in the menu widget is a quick fix for proper sessions need to be removed
-				@SuppressWarnings("unused")
-                Session session = sessionManager.getVertxSession(req, server);
+
 				
 				Map<String,Object> result = new HashMap<String,Object>();
 				Map<String, Object> menu = configRepository.readConfig(req.getVirtualHost(), ((MenuDataHandlerConfig) options).getMenuID(req));
