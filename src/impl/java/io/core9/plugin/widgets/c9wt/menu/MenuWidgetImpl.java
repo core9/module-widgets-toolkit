@@ -2,6 +2,7 @@ package io.core9.plugin.widgets.c9wt.menu;
 
 import io.core9.plugin.widgets.datahandler.DataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
+import io.core9.plugin.widgets.widget.WidgetImpl;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +13,7 @@ import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 import com.google.common.io.CharStreams;
 
 @PluginImplementation
-public class MenuWidgetImpl implements MenuWidget {
+public class MenuWidgetImpl extends WidgetImpl implements MenuWidget {
 	
 	@InjectPlugin
 	private MenuDataHandler<MenuDataHandlerConfig> menuDataHandler;
@@ -52,12 +53,4 @@ public class MenuWidgetImpl implements MenuWidget {
 		options.setMenuID(MenuID);
 		handler = menuDataHandler.createDataHandler(options);
 	}
-
-	@Override
-	public String getId() {
-		return null;
-	}
-
-
-
 }
