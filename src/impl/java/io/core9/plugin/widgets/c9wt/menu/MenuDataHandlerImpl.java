@@ -2,8 +2,6 @@ package io.core9.plugin.widgets.c9wt.menu;
 
 import io.core9.plugin.admin.plugins.AdminConfigRepository;
 import io.core9.plugin.server.request.Request;
-import io.core9.plugin.server.vertx.VertxServer;
-import io.core9.plugin.widgets.c9wt.menu.MenuDataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandlerFactoryConfig;
 
@@ -19,11 +17,6 @@ public class MenuDataHandlerImpl implements MenuDataHandler<MenuDataHandlerConfi
 	@InjectPlugin
 	private AdminConfigRepository configRepository;
 
-
-	
-	@InjectPlugin
-	private VertxServer server;
-	
 	@Override
 	public String getName() {
 		return "Menu";

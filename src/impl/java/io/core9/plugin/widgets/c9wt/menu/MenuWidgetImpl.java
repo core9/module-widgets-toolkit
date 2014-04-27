@@ -53,6 +53,11 @@ public class MenuWidgetImpl implements MenuWidget {
 		handler = menuDataHandler.createDataHandler(options);
 	}
 
+	@Override
+	public String getId() {
+		return null;
+	}
+
 
 
 }

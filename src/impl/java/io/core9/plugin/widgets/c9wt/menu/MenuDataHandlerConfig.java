@@ -24,7 +24,7 @@ public class MenuDataHandlerConfig extends DataHandlerDefaultConfig {
 	 */
 	public String getMenuID(Request request) {
 		if(menuID.isGlobal()) {
-			return request.getContext(this.getComponentId() + ".menuID", menuID.getValue());
+			return request.getContext(this.getComponentName() + ".menuID", menuID.getValue());
 		}
 		return menuID.getValue();
 	}
