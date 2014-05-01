@@ -19,12 +19,6 @@ task publishBintray (type: org._10ne.gradle.rest.RestTask, dependsOn: bintrayUpl
     password = System.env.BINTRAY_KEY
 }
 
-repositories {
-	maven {
-		url "http://rendersnake.googlecode.com/svn/repo"
-	}
-}
-
 dependencies {
 	apiCompile 'io.core9:core-api:+'
 	apiCompile 'io.core9:module-widgets-api:+'
