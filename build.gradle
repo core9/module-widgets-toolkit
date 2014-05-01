@@ -29,6 +29,4 @@ dependencies {
 	apiCompile 'io.core9:core-api:+'
 	apiCompile 'io.core9:module-widgets-api:+'
 	implCompile 'io.core9:module-template-engine-closure-api:+'
-	implCompile 'io.core9:module-workflow:+' // TODO Change to API
-	implCompile 'org.rendersnake:rendersnake:+' // TODO remove
 }
