@@ -8,17 +8,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import net.xeoh.plugins.base.annotations.PluginImplementation;
-import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
+import net.xeoh.plugins.base.annotations.events.PluginLoaded;
 
 import com.google.common.io.CharStreams;
 
 @PluginImplementation
 public class MenuWidgetImpl extends WidgetImpl implements MenuWidget {
 	
-	@InjectPlugin
-	private MenuDataHandler<MenuDataHandlerConfig> menuDataHandler;
-	
 	private DataHandler<MenuDataHandlerConfig> handler;
+	
+	@PluginLoaded
+	public void onMenuDataHandlerLoaded(MenuDataHandler<MenuDataHandlerConfig> menuDataHandler) {
+		MenuDataHandlerConfig options = new MenuDataHandlerConfig();
+		DataHandlerGlobalString MenuID = new DataHandlerGlobalString();
+		MenuID.setGlobal(true);
+		options.setMenuID(MenuID);
+		this.handler = menuDataHandler.createDataHandler(options);
+	}
 	
 	@Override
 	public DataHandler<?> getDataHandler() {
@@ -46,11 +52,8 @@ public class MenuWidgetImpl extends WidgetImpl implements MenuWidget {
 	}
 
 	@Override
-	public void execute() {
-		MenuDataHandlerConfig options = new MenuDataHandlerConfig();
-		DataHandlerGlobalString MenuID = new DataHandlerGlobalString();
-		MenuID.setGlobal(true);
-		options.setMenuID(MenuID);
-		handler = menuDataHandler.createDataHandler(options);
+	public String getId() {
+		return "C9WTMENUWIDGET";
 	}
+
 }
