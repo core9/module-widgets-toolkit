@@ -17,7 +17,7 @@
   {case 'navitem'}
   	{call .navitem}{param item: $item/}{/call}
   {case 'ul'}
-    {call .nav}{param item: $item /}{/call}
+    {call .ul}{param item: $item /}{/call}
   {case 'li'}
     {call .li}{param item: $item /}{/call}
   {default} 
@@ -36,7 +36,7 @@
  * @param item
  */
 {template .ul}
-<ul {if $item.classes}class="{$item.classes}"{/if}>{foreach $inner in $item.items}{call .item}{param item: $inner /}{/call}{/foreach}</ul>
+<li {if $item.classes}class="{$item.classes}"{/if}>{$item.name}<ul {if $item.classes}class="{$item.classes}"{/if}>{foreach $inner in $item.items}{call .item}{param item: $inner /}{/call}{/foreach}</ul></li>
 {/template}
 
 /**
@@ -50,8 +50,8 @@
  * @param item
  */
 {template .navitem}
-<li {if $item.classes}class="{$item.classes}"{/if}>{if $item.link}<a href="{$item.link}">{/if}{$item.name}{if $item.link}</a>{/if}
 {if $item.items}
 {foreach $inner in $item.items}{call .item}{param item: $inner /}{/call}{/foreach}
-{/if}</li>
+{else}
+<li {if $item.classes}class="{$item.classes}"{/if}>{if $item.link}<a href="{$item.link}">{/if}{$item.name}{if $item.link}</a>{/if}</li>{/if}
 {/template}
