@@ -3,17 +3,17 @@ package io.core9.plugin.widgets.c9wt.menu;
 import io.core9.plugin.server.request.Request;
 import io.core9.plugin.widgets.Core9GlobalConfiguration;
 import io.core9.plugin.widgets.datahandler.DataHandlerDefaultConfig;
-import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
+import io.core9.plugin.widgets.datahandler.DataHandlerGlobal;
 
 public class MenuDataHandlerConfig extends DataHandlerDefaultConfig {
 	
 	@Core9GlobalConfiguration(type = "menu")
-	private DataHandlerGlobalString menuID;
+	private DataHandlerGlobal<String> menuID;
 
 	/**
 	 * @return the menuName
 	 */
-	public DataHandlerGlobalString getMenuID() {
+	public DataHandlerGlobal<String> getMenuID() {
 		return menuID;
 	}
 	
@@ -32,7 +32,7 @@ public class MenuDataHandlerConfig extends DataHandlerDefaultConfig {
 	/**
 	 * @param menuName the menuName to set
 	 */
-	public void setMenuID(DataHandlerGlobalString menuID) {
+	public void setMenuID(DataHandlerGlobal<String> menuID) {
 		this.menuID = menuID;
 	}
 

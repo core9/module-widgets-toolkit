@@ -1,7 +1,7 @@
 package io.core9.plugin.widgets.c9wt.menu;
 
 import io.core9.plugin.widgets.datahandler.DataHandler;
-import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
+import io.core9.plugin.widgets.datahandler.DataHandlerGlobal;
 import io.core9.plugin.widgets.widget.WidgetImpl;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class MenuWidgetImpl extends WidgetImpl implements MenuWidget {
 	@PluginLoaded
 	public void onMenuDataHandlerLoaded(MenuDataHandler<MenuDataHandlerConfig> menuDataHandler) {
 		MenuDataHandlerConfig options = new MenuDataHandlerConfig();
-		DataHandlerGlobalString MenuID = new DataHandlerGlobalString();
+		DataHandlerGlobal<String> MenuID = new DataHandlerGlobal<String>();
 		MenuID.setGlobal(true);
 		options.setMenuID(MenuID);
 		this.handler = menuDataHandler.createDataHandler(options);
